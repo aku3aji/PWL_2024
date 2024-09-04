@@ -1,6 +1,8 @@
 <html>
+    <head>
+        HOMEPAGE
+    </head>
     <body>
-        <h1>Hello, {{ $name }}</h1>
-        <h1>You are {{ $occupation }}</h1>
+        <h1>Selamat Datang</h1>
     </body>
 </html>
