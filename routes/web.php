@@ -58,3 +58,5 @@ Route::prefix('product')->group(function () {
 });
 
 Route::get('/user/{id}/name/{name}', [UserController::class, 'show'])->name('user.show');
+
+Route::get('/sales', [SalesController::class, 'index'])->name('sales.index');
