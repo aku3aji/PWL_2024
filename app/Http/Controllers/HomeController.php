@@ -6,5 +6,9 @@
         public function index() {
             return 'Selamat Datang';
         }
+
+        public function homepos(){
+            return view('tampilanawal_pos');
+        }
     }
     
