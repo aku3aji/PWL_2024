@@ -13,7 +13,7 @@ class ProductController extends Controller {
         return view('product.food-beverage') ;
     }
     
-    public function beautyHeaIth(){
+    public function beautyHealth(){
         return view('product.beauty-health') ;
     }
     
