@@ -44,3 +44,5 @@ Route::get('/greeting', function (){
 });
 
 Route::get('/greeting', [WelcomeController::class, 'greeting']);
+
+Route::get('/', [HomeController::class, 'index'])->name('home');
