@@ -1,21 +1,30 @@
 <?php
 
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ArticlesController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PageController;
+use App\Http\Controllers\PhotoController;
+use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/hello', function () {
-    return 'Hello World';
-});   
+Route::get('/hello', [WelcomeController::class,'hello']);
+
+Route::get('/index', [HomeController::class,'index']);
+
+Route::get('/about', [AboutController::class,'about']);
+
+Route::get('/articles/{id}', [ArticlesController::class,'articles']);
+
+//Route::resource('Photos', PhotoController::class);
+
+//Route::resource('photos', PhotoController::class)->only(['index', 'show']);
+
+Route::resource('photos', PhotoController::class)->except(['create', 'store', 'update', 'destroy']);
+   
 
 Route::get('/world', function () {
     return 'World';
-});
-
-Route::get('/salam', function () {
-    return 'Selamat Datang';
-});
-
-Route::get('/about', function () {
-    return 'Hallo! Saya Triaji Ibnu Hermawan dengan NIM 2241760075';
 });
 
 Route::get('/user/{name}', function ($name) {
@@ -26,11 +35,12 @@ Route::get('/posts/{post}/comments/{comment}', function ($postId, $commentId) {
     return 'Pos ke-'.$postId." Komentar ke-: ".$commentId;
 });
 
-Route::get('/articles/{id}', function ($id) {
-    return 'Halaman Artikel dengan ID '.$id;
-});
-
 Route::get('/user/{name?}', function ($name='John') {
     return 'Nama saya '.$name;
 });
-    
+
+Route::get('/greeting', function (){
+    return view('blog.hello', ['name' => 'Triaji Ibnu']);
+});
+
+Route::get('/greeting', [WelcomeController::class, 'greeting']);
